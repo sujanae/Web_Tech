@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks and Grade Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        form {
+            margin: 50px auto;
+            padding: 20px;
+            width: 300px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="marksForm">
+        <h2>Enter Student Details</h2>
+        <input type="text" id="studentName" placeholder="Enter student name" required>
+        <input type="text" id="studentClass" placeholder="Enter class" required>
+        <input type="number" id="subject1" placeholder="Enter marks for Subject 1" required>
+        <input type="number" id="subject2" placeholder="Enter marks for Subject 2" required>
+        <input type="number" id="subject3" placeholder="Enter marks for Subject 3" required>
+        <button type="button" onclick="calculateResult()">Calculate Total and Grade</button>
+        <div class="result" id="result"></div>
+    </form>
+
+    <script>
+        function calculateResult() {
+            const studentName = document.getElementById("studentName").value;
+            const studentClass = document.getElementById("studentClass").value;
+            const subject1 = parseFloat(document.getElementById("subject1").value);
+            const subject2 = parseFloat(document.getElementById("subject2").value);
+            const subject3 = parseFloat(document.getElementById("subject3").value);
+            
+            const totalMarks = subject1 + subject2 + subject3;
+            let grade;
+
+            if (totalMarks >= 270) {
+                grade = "A";
+            } else if (totalMarks >= 240) {
+                grade = "B";
+            } else if (totalMarks >= 210) {
+                grade = "C";
+            } else if (totalMarks >= 180) {
+                grade = "D";
+            } else {
+                grade = "F";
+            }
+
+            document.getElementById("result").innerHTML = `
+                <p>Name: ${studentName}</p>
+                <p>Class: ${studentClass}</p>
+                <p>Subject 1 Marks: ${subject1}</p>
+                <p>Subject 2 Marks: ${subject2}</p>
+                <p>Subject 3 Marks: ${subject3}</p>
+                <p>Total Marks: ${totalMarks}</p>
+                <p>Grade: ${grade}</p>
+            `;
+        }
+    </script>
+
+</body>
+</html>
