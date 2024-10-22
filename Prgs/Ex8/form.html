@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+</head>
+<body>
+    <h2>Insert, Update, Delete, or Retrieve Employee</h2>
+
+    <form action="employee.php" method="POST">
+        <label for="emp_no">Employee Number:</label><br>
+        <input type="number" name="emp_no" required><br>
+
+        <label for="emp_name">Employee Name:</label><br>
+        <input type="text" name="emp_name"><br>
+
+        <label for="date_of_join">Date of Join:</label><br>
+        <input type="date" name="date_of_join"><br>
+
+        <label for="salary">Salary:</label><br>
+        <input type="number" step="0.01" name="salary"><br>
+
+        <label for="designation">Designation:</label><br>
+        <input type="text" name="designation"><br><br>
+
+        <input type="submit" name="insert" value="Insert Employee">
+        <input type="submit" name="update" value="Update Employee">
+        <input type="submit" name="delete" value="Delete Employee">
+        <input type="submit" name="retrieve" value="Retrieve Employee">
+    </form>
+</body>
+</html>
